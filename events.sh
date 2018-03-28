@@ -10,6 +10,8 @@ LANG=fi_FI.UTF-8
 usage() {
     echo "
 $0 [ options ]
+  -a|--apiserver <ADDRESS>
+    use the provided apiserver address
   -o|--openshift
     use openshift (requires oc login)
   -t|--token <TOKEN>
@@ -26,6 +28,10 @@ while [[ $# -gt 0 ]]; do
         -h|--help )
             usage
             exit 0
+            ;;
+        -a|--apiserver )
+            API_SERVER_ADDRESS="$1"
+            shift
             ;;
         -o|--openshift )
             openshift="true"
