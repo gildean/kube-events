@@ -1,5 +1,5 @@
 #! /bin/bash
-set -euo pipefail
+set -eo pipefail
 # setting LANG gives correct timestamps
 LANG=fi_FI.UTF-8
 # set defaults
@@ -30,18 +30,18 @@ while [[ $# -gt 0 ]]; do
             exit 0
             ;;
         -a|--apiserver )
-            API_SERVER_ADDRESS="$1"
+            API_SERVER_ADDRESS="$2"
             shift
             ;;
         -o|--openshift )
             openshift="true"
             ;;
         -t|--token )
-            TOKEN="$1"
+            TOKEN="$2"
             shift
             ;;
         -c|--cacert )
-            CA_CERT="$1"
+            CA_CERT="$2"
             shift
             ;;
         * )
